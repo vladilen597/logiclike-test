@@ -1,0 +1,21 @@
+.tab {
+  .tab__button {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Nunito';
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 18px;
+    letter-spacing: -0.1px;
+    color: #39414b;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &.tab__button--active {
+      background-color: #5fbf77;
+      border-radius: 12px;
+      color: #fff;
+    }
+  }
+}

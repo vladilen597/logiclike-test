@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import type { TTag } from '../../types/types'
 
 import './Navigation.scss'
+import Tab from './Tab/Tab'
 
 type TNavigationProps = {
   tags: TTag[]
@@ -17,31 +18,22 @@ const Navigation: React.FC<TNavigationProps> = ({
   return (
     <nav className='navigation'>
       <ul className='navigation__tags'>
-        <li className='navigation__tag'>
-          <button
-            className={`navigation__button ${
-              activeTab === 'Все темы' && 'navigation__button--active'
-            }`}
-            onClick={() => setActiveTab('Все темы')}
-          >
-            Все темы
-          </button>
-        </li>
+        <Tab
+          name='Все темы'
+          isActive={activeTab === 'Все темы'}
+          setIsActive={() => setActiveTab('Все темы')}
+        />
         {tags.map((tag) => (
-          <li key={tag} className='navigation__tag'>
-            <button
-              className={`navigation__button ${
-                activeTab === tag && 'navigation__button--active'
-              }`}
-              onClick={() => setActiveTab(tag)}
-            >
-              {tag}
-            </button>
-          </li>
+          <Tab
+            key={tag}
+            name={tag}
+            isActive={activeTab === tag}
+            setIsActive={() => setActiveTab(tag)}
+          />
         ))}
       </ul>
     </nav>
   )
 }
 
-export default Navigation
+export default React.memo(Navigation)

@@ -32,4 +32,4 @@ const Games: React.FC<TGamesProps> = ({ games, activeTag }) => {
   )
 }
 
-export default Games
+export default React.memo(Games)
